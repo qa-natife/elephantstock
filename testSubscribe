@@ -1,0 +1,57 @@
+package com.mycompany.app;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+
+
+public class testSubscribe {
+//    @Test
+//    public void popupSubscribe() {
+//        open("https://elephantstock.com/");
+//        sleep(5000);
+//        $(".ft-pop__title-heading").shouldHave(text("First Time Here?"));
+//        $(By.name("customer[email]")).setValue("vlad.qa.incode@gmail.com");
+//        $x("//*[@id=\"shopify-section-static_welcome-popup\"]/div/div[2]/div[2]/button").click();
+//        $(".ft-pop__ab-subscribe-thanks_show p").shouldHave(text("THANK YOU!"));
+//    }
+    @Test
+    public void footerSubscribe() {
+        open("https://elephantstock.com/");//open website
+
+        sleep(5000);//wait for popap
+
+        $(".ft-popup--big").shouldHave(attribute("aria-hidden","false"));
+        $x("//*[@id=\"shopify-section-static_welcome-popup\"]/div/div[1]").click();//close the popap
+
+
+        scrollToView("#shopify-section-footer");
+        sleep(10000);
+        $x("/html/body/div[9]/div/footer/div[1]/div[1]/form/div[2]/input").should(exist);
+//        $x("/html/body/div[9]/div/footer/div[1]/div[1]/form/div[2]/input").setValue("vlad.qa.incode@gmail.com");
+//       sleep(5000);
+//        $x("/html/body/div[9]/div/footer/div[1]/div[1]/form/div[2]/button").should(exist);
+//        $x("/html/body/div[9]/div/footer/div[1]/div[1]/form/div[2]/button").click();
+
+
+    }
+
+    private void scrollToView(String s) {
+    }
+
+
+
+
+//    @Test
+//    public void srollGoogle() {
+//        open("https://www.google.com/");
+//        $(By.name("q")).setValue("Погода").pressEnter();
+//        scrollIntoView("pnnext");
+//        sleep(10000);
+//    }
+//
+//    private void scrollIntoView(String pnnext) {
+//    }
+}
